@@ -18,6 +18,8 @@ function MySQLSelected(){
             </select><br>
             <label for='rutabase'>Indique dónde está su base de datos</label><br>
             <input type='text' id='rutabase' name='mysql_rutabase'><br>
+            <label for="puertobase">Indique su puerto para la base de datos</label><br>
+            <input type="number" id="puertobase" name="mysql_puertobase"><br>
             <label for='nombrebase'>Indique el nombre de su base de datos</label><br>
             <input type='text' id='nombrebase' name='mysql_nombrebase'><br>
             <label for='nombreuser'>Indique el nombre de su usuario</label><br>
@@ -48,6 +50,8 @@ function MariaDBSelected(){
             </select><br>
             <label for='rutabase'>Indique dónde está su base de datos</label><br>
             <input type='text' id='rutabase' name='mariadb_rutabase'><br>
+            <label for="puertobase">Indique su puerto para la base de datos</label><br>
+            <input type="number" id="puertobase" name="mariadb_puertobase"><br>
             <label for='nombrebase'>Indique el nombre de su base de datos</label><br>
             <input type='text' id='nombrebase' name='mariadb_nombrebase'><br>
             <label for='nombreuser'>Indique el nombre de su usuario</label><br>
@@ -76,6 +80,8 @@ function PostgresSelected(){
             </select><br>
             <label for='rutabase'>Indique dónde está su base de datos</label><br>
             <input type='text' id='rutabase' name='postgres_rutabase'><br>
+            <label for="puertobase">Indique su puerto para la base de datos</label><br>
+            <input type="number" id="puertobase" name="postgres_puertobase"><br>
             <label for='nombrebase'>Indique el nombre de su base de datos</label><br>
             <input type='text' id='nombrebase' name='postgres_nombrebase'><br>
             <label for='nombreuser'>Indique el nombre de su usuario</label><br>

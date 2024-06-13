@@ -1,14 +1,15 @@
 <?php
+    /*error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);*/
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $puerto = $_POST['puerto'];
         $versionPhp = $_POST['version'];
         $ruta = $_POST['ruta'];
         $contenedores = $_POST['contenedores'];
-        $bbdd = $_POST['bbdd'];
+        $bbdd = strtolower($_POST['bbdd']);
 
         $services = [];
 
-        if (in_array('MySQL', $bbdd)) {
+        if ($bbdd == "mysql") {
             $services['mysql'] = [
                 'image' => 'mysql:' . $_POST['version_mysql'],
                 'working_dir' => "$ruta",
@@ -23,12 +24,12 @@
                     'MYSQL_PASSWORD=' . $_POST['mysql_contraUsuario']
                 ],
                 'ports' => [
-                    "$puerto:3306"
+                    $_POST['mysql_puertobase'] . ":3306"
                 ]
             ];
         }
 
-        if (in_array('MariaDB', $bbdd)) {
+        if ($bbdd == 'mariadb') {
             $services['mariadb'] = [
                 'image' => 'mariadb:' . $_POST['version_mariadb'],
                 'working_dir' => "$ruta",
@@ -42,12 +43,12 @@
                     'MYSQL_PASSWORD=' . $_POST['mariadb_contraUsuario']
                 ],
                 'ports' => [
-                    "$puerto:3306"
+                    $_POST['mariadb_puertobase'] . ":3306"
                 ]
             ];
         }
 
-        if (in_array('Postgres', $bbdd)) {
+        if ($bbdd == "postgres") {
             $services['postgres'] = [
                 'image' => 'postgres:' . $_POST['version_postgres'],
                 'working_dir' => "$ruta",
@@ -60,7 +61,7 @@
                     'POSTGRES_USER=' . $_POST['postgres_nombreuser']
                 ],
                 'ports' => [
-                    "$puerto:5432"
+                    $_POST['postgres_puertobase'] . ":5432"
                 ]
             ];
         }
@@ -75,13 +76,13 @@
                 '/etc/apache2/apache2.conf:/etc/apache2/sites-available/000-default.conf'
             ],
             'links' => [
-                "$bbdd"
+                $bbdd
             ],
             'networks' => [
                 "default"
             ],
             'depends_on' => [
-                "$bbdd"
+                $bbdd
             ]
             
         ];
@@ -94,7 +95,7 @@
                 "/etc/php/{$versionPhp}/fpm/conf.d/99-overrides.ini:/etc/php/{$versionPhp}/fpm/conf.d/99-overrides.ini"
             ],
             'depends_on' => [
-                "$bbdd"
+                $bbdd
             ]
         ];
 

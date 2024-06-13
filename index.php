@@ -37,17 +37,17 @@
                 <article class="bbdd" id="bbdd">
                     <h3>Elija el tipo o tipos de bases de datos que desea</h3>
                         <label for="mysql" class="container">MySQL
-                            <input type="checkbox" id="mysql" name="bbdd[]" value="MySQL">
+                            <input type="checkbox" id="mysql" name="bbdd" value="MySQL">
                             <span class="checkmark"></span>
                         </label><br>    
                         <div id="base1"></div>
                         <label for="mariadb" class="container">MariaDB
-                            <input type="checkbox" id="mariadb" name="bbdd[]" value="MariaDB">
+                            <input type="checkbox" id="mariadb" name="bbdd" value="MariaDB">
                             <span class="checkmark"></span>
                         </label><br>
                         <div id="base2"></div>
                         <label for="postgres" class="container">Postgres
-                            <input type="checkbox" id="postgres" name="bbdd[]" value="Postgres">
+                            <input type="checkbox" id="postgres" name="bbdd" value="Postgres">
                             <span class="checkmark"></span>
                         </label><br>
                         <div id="base3"></div>
